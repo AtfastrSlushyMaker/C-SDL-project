@@ -77,7 +77,7 @@ int main()
                         }
                         if (background_music_volume <= 120 && background_music_volume >= 0)
                         {
-                            if (event.key.keysym.sym == SDLK_KP_PLUS)
+                            if ((event.key.keysym.sym == SDLK_KP_PLUS) || (event.key.keysym.sym == SDLK_RIGHT))
                             {
                                 if (volume_steps < 5)
                                 {
@@ -86,7 +86,7 @@ int main()
                                     volume_offset += 50;
                                 }
                             }
-                            if (event.key.keysym.sym == SDLK_KP_MINUS)
+                            if ((event.key.keysym.sym == SDLK_KP_MINUS) || (event.key.keysym.sym == SDLK_LEFT))
                             {
                                 if (volume_steps >= 0)
                                 {
@@ -164,6 +164,14 @@ int main()
                         boucle = 0;
                         break;
                     case SDL_KEYDOWN:
+                        if (event.key.keysym.sym == SDLK_o)
+                        {
+                            level = -1;
+                        }
+                        if (event.key.keysym.sym == SDLK_p)
+                        {
+                            level = 1;
+                        }
                         if (event.key.keysym.sym == SDLK_TAB)
                         {
 
